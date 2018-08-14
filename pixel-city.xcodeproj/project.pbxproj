@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A55B14ECB731A86433F5CCB6 /* Pods_pixel_city.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BB8C3EB2DFD39C842EE38C /* Pods_pixel_city.framework */; };
+		CE37410A21231C1300051151 /* DropablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37410921231C1300051151 /* DropablePin.swift */; };
 		CEC501412122CB3300A4BBA3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC501402122CB3300A4BBA3 /* MapKit.framework */; };
 		CECEA080212295B200E06FEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEA07F212295B200E06FEA /* AppDelegate.swift */; };
 		CECEA082212295B200E06FEA /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEA081212295B200E06FEA /* MapVC.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		17BB8C3EB2DFD39C842EE38C /* Pods_pixel_city.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pixel_city.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE37410921231C1300051151 /* DropablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropablePin.swift; sourceTree = "<group>"; };
 		CEC501402122CB3300A4BBA3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CECEA07C212295B200E06FEA /* pixel-city.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pixel-city.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECEA07F212295B200E06FEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		CECEA0922122960500E06FEA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE37410921231C1300051151 /* DropablePin.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CECEA082212295B200E06FEA /* MapVC.swift in Sources */,
+				CE37410A21231C1300051151 /* DropablePin.swift in Sources */,
 				CECEA080212295B200E06FEA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +401,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CQW554G3VL;
 				INFOPLIST_FILE = "pixel-city/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,6 +421,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CQW554G3VL;
 				INFOPLIST_FILE = "pixel-city/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
