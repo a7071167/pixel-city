@@ -10,6 +10,7 @@
 		A55B14ECB731A86433F5CCB6 /* Pods_pixel_city.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BB8C3EB2DFD39C842EE38C /* Pods_pixel_city.framework */; };
 		CE37410A21231C1300051151 /* DropablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37410921231C1300051151 /* DropablePin.swift */; };
 		CE3951152123DF83001693FB /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3951142123DF83001693FB /* PhotoCell.swift */; };
+		CE3951172123EE13001693FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3951162123EE13001693FB /* Constants.swift */; };
 		CEC501412122CB3300A4BBA3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC501402122CB3300A4BBA3 /* MapKit.framework */; };
 		CECEA080212295B200E06FEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEA07F212295B200E06FEA /* AppDelegate.swift */; };
 		CECEA082212295B200E06FEA /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEA081212295B200E06FEA /* MapVC.swift */; };
@@ -22,6 +23,7 @@
 		17BB8C3EB2DFD39C842EE38C /* Pods_pixel_city.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pixel_city.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE37410921231C1300051151 /* DropablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropablePin.swift; sourceTree = "<group>"; };
 		CE3951142123DF83001693FB /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		CE3951162123EE13001693FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CEC501402122CB3300A4BBA3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CECEA07C212295B200E06FEA /* pixel-city.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pixel-city.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECEA07F212295B200E06FEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		CECEA0942122961D00E06FEA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CE3951162123EE13001693FB /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3951172123EE13001693FB /* Constants.swift in Sources */,
 				CE3951152123DF83001693FB /* PhotoCell.swift in Sources */,
 				CECEA082212295B200E06FEA /* MapVC.swift in Sources */,
 				CE37410A21231C1300051151 /* DropablePin.swift in Sources */,
