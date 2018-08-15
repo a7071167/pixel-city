@@ -19,9 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaD-Pr-Ea2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="666"/>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1c-Vy-LCY">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k1c-Vy-LCY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double-tap to drop a pin and view photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2v-tb-Xah">
@@ -43,7 +43,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cU0-db-TNo">
-                                <rect key="frame" x="309" y="597" width="50" height="50"/>
+                                <rect key="frame" x="309" y="596" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Xjb-nb-2eg"/>
                                     <constraint firstAttribute="width" constant="50" id="uwB-OC-IsL"/>
@@ -56,28 +56,31 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lh9-HO-aBX">
                                 <rect key="frame" x="0.0" y="666" width="375" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="fjJ-OA-L9g"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cU0-db-TNo" secondAttribute="trailing" constant="16" id="0ax-HP-EjP"/>
                             <constraint firstAttribute="trailing" secondItem="lh9-HO-aBX" secondAttribute="trailing" id="8fv-HO-iC5"/>
-                            <constraint firstItem="lh9-HO-aBX" firstAttribute="top" secondItem="cU0-db-TNo" secondAttribute="bottom" constant="19" id="EOP-lS-Ek5"/>
-                            <constraint firstItem="QaD-Pr-Ea2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FiR-Zj-mOJ"/>
-                            <constraint firstItem="QaD-Pr-Ea2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Jde-Op-p42"/>
+                            <constraint firstItem="lh9-HO-aBX" firstAttribute="top" secondItem="cU0-db-TNo" secondAttribute="bottom" constant="20" id="Amu-Yh-zQL"/>
+                            <constraint firstItem="QaD-Pr-Ea2" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="FiR-Zj-mOJ"/>
+                            <constraint firstItem="QaD-Pr-Ea2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Jde-Op-p42"/>
                             <constraint firstItem="QaD-Pr-Ea2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JnS-O6-PCD"/>
                             <constraint firstItem="lh9-HO-aBX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KMj-se-oZb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cU0-db-TNo" secondAttribute="bottom" constant="20" id="VCU-bs-L1y"/>
-                            <constraint firstItem="QaD-Pr-Ea2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="WfR-tj-dJa"/>
                             <constraint firstItem="k1c-Vy-LCY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cmz-GN-fll"/>
-                            <constraint firstItem="lh9-HO-aBX" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jtc-6K-Zwl"/>
                             <constraint firstItem="k1c-Vy-LCY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mQH-a0-Pvj"/>
-                            <constraint firstItem="QaD-Pr-Ea2" firstAttribute="top" secondItem="k1c-Vy-LCY" secondAttribute="top" id="voe-Mq-OhQ"/>
+                            <constraint firstAttribute="bottom" secondItem="lh9-HO-aBX" secondAttribute="bottom" id="raV-Ed-Kyt"/>
+                            <constraint firstItem="lh9-HO-aBX" firstAttribute="top" secondItem="QaD-Pr-Ea2" secondAttribute="bottom" id="sV5-RU-err"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="QaD-Pr-Ea2" id="5mN-Nx-6T4"/>
+                        <outlet property="pullUpView" destination="lh9-HO-aBX" id="ZX5-mP-bTR"/>
+                        <outlet property="pullUpViewHeightConstraint" destination="fjJ-OA-L9g" id="Aj1-OV-uPn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
