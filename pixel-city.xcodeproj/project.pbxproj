@@ -12,6 +12,7 @@
 		CE3951152123DF83001693FB /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3951142123DF83001693FB /* PhotoCell.swift */; };
 		CE3951172123EE13001693FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3951162123EE13001693FB /* Constants.swift */; };
 		CE3951192124685A001693FB /* PopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3951182124685A001693FB /* PopVC.swift */; };
+		CE39511C212544B6001693FB /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39511B212544B6001693FB /* ImageService.swift */; };
 		CEC501412122CB3300A4BBA3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC501402122CB3300A4BBA3 /* MapKit.framework */; };
 		CECEA080212295B200E06FEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEA07F212295B200E06FEA /* AppDelegate.swift */; };
 		CECEA082212295B200E06FEA /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEA081212295B200E06FEA /* MapVC.swift */; };
@@ -26,6 +27,7 @@
 		CE3951142123DF83001693FB /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		CE3951162123EE13001693FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE3951182124685A001693FB /* PopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVC.swift; sourceTree = "<group>"; };
+		CE39511B212544B6001693FB /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		CEC501402122CB3300A4BBA3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CECEA07C212295B200E06FEA /* pixel-city.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pixel-city.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECEA07F212295B200E06FEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CE39511A2125447B001693FB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CE39511B212544B6001693FB /* ImageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		CECEA073212295B200E06FEA = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +100,7 @@
 		CECEA07E212295B200E06FEA /* pixel-city */ = {
 			isa = PBXGroup;
 			children = (
+				CE39511A2125447B001693FB /* Services */,
 				CECEA0942122961D00E06FEA /* Utilities */,
 				CECEA0932122961600E06FEA /* Extensions */,
 				CECEA0922122960500E06FEA /* View */,
@@ -264,6 +275,7 @@
 				CECEA082212295B200E06FEA /* MapVC.swift in Sources */,
 				CE37410A21231C1300051151 /* DropablePin.swift in Sources */,
 				CECEA080212295B200E06FEA /* AppDelegate.swift in Sources */,
+				CE39511C212544B6001693FB /* ImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

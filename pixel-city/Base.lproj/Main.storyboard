@@ -116,20 +116,30 @@
                                     <constraint firstAttribute="width" constant="200" id="ny5-st-Nnz"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted By:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBy-Hr-oFT">
+                                <rect key="frame" x="16" y="36" width="343" height="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Mhs-3g-baq" firstAttribute="top" secondItem="wlv-e0-fli" secondAttribute="top" id="72i-i1-eoa"/>
+                            <constraint firstItem="dBy-Hr-oFT" firstAttribute="leading" secondItem="wlv-e0-fli" secondAttribute="leading" constant="16" id="ONx-am-bxl"/>
                             <constraint firstItem="wlv-e0-fli" firstAttribute="bottom" secondItem="b0A-0q-eWF" secondAttribute="bottom" constant="20" id="Ya4-Bl-zcP"/>
                             <constraint firstItem="Mhs-3g-baq" firstAttribute="leading" secondItem="wlv-e0-fli" secondAttribute="leading" id="cb7-5z-npJ"/>
                             <constraint firstItem="wlv-e0-fli" firstAttribute="bottom" secondItem="Mhs-3g-baq" secondAttribute="bottom" id="eFi-tz-AkD"/>
+                            <constraint firstItem="dBy-Hr-oFT" firstAttribute="top" secondItem="wlv-e0-fli" secondAttribute="top" constant="16" id="jXh-VO-dkM"/>
                             <constraint firstItem="wlv-e0-fli" firstAttribute="trailing" secondItem="Mhs-3g-baq" secondAttribute="trailing" id="mO0-Ud-CpV"/>
+                            <constraint firstItem="wlv-e0-fli" firstAttribute="trailing" secondItem="dBy-Hr-oFT" secondAttribute="trailing" constant="16" id="qhT-ec-IOO"/>
                             <constraint firstItem="b0A-0q-eWF" firstAttribute="centerX" secondItem="LQK-El-QTt" secondAttribute="centerX" id="z48-sz-Gnq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wlv-e0-fli"/>
                     </view>
                     <connections>
                         <outlet property="popImageView" destination="Mhs-3g-baq" id="tDH-sl-Y8u"/>
+                        <outlet property="postedByNameLbl" destination="dBy-Hr-oFT" id="L2A-QY-bdq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4BA-KU-YgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
