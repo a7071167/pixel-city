@@ -14,11 +14,11 @@ class PopVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var postedByNameLbl: UILabel!
     
     var passedImage: UIImage!
-    var passedLbl: String!
+    var passedLbl: String?
     
-    func initData(forImage image: UIImage, and nameLabel: String) {
+    func initData(forImage image: UIImage) {
         self.passedImage = image
-        self.passedLbl = nameLabel
+//        self.passedLbl = nameLabel
     }
     
     override func viewDidLoad() {
@@ -27,7 +27,8 @@ class PopVC: UIViewController, UIGestureRecognizerDelegate {
         popImageView.image = passedImage
         postedByNameLbl.text = passedLbl
         addDoubleTap()
-        NotificationCenter.default.addObserver(self, selector: #selector(loaded640x480(_:)), name: NSNotification.Name("Loaded"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loaded640x480(_:)), name: NSNotification.Name(LOADED_ONE_BIGSIZE_PIC), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadedUserDataOnPict(_:)), name: NSNotification.Name(LOADED_USERNAME_REALNAME), object: nil)
     }
     
     func addDoubleTap() {
@@ -46,4 +47,7 @@ class PopVC: UIViewController, UIGestureRecognizerDelegate {
         popImageView.image = ImageService.instance.bigImage.first
     }
 
+    @objc func loadedUserDataOnPict(_ notif: Notification) {
+        postedByNameLbl.text = "Posted by: \(ImageService.instance.realName)"
+    }
 }

@@ -22,6 +22,7 @@ class ImageService {
     var imageArray = [UIImage]()
     var imageUrlArray640x480 = [String]()
     var imageArray640x480 = [UIImage]()
+    var realName = String()
 
     var bigImage = [UIImage]()
     
@@ -51,7 +52,7 @@ class ImageService {
             Alamofire.request(url).responseImage { (response) in
                 guard let image = response.result.value else { return }
                 self.imageArray.append(image)
-                NotificationCenter.default.post(name: NSNotification.Name("PictureIsLoaded"), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(LOADED_ONE_SMALL_PIC_IN_COLLECTION), object: nil)
                 if self.imageArray.count == self.imageUrlArray.count || self.imageArray.count == self.ownerNames.count {
                     completion(true)
                 }
@@ -69,6 +70,25 @@ class ImageService {
             if ImageService.instance.bigImage.count == 1 {
                 completion(true)
             }
+        }
+    }
+    
+    func getUserRealName(fromOwnerIndex indexPath: Int, completion: @escaping (_ status: Bool) -> ()) {
+        let owner = ownerNames[indexPath]
+        var content = "____"
+        Alamofire.request(getNameById(withId: owner)).responseJSON { (response) in
+            print(response)
+            guard let json = response.result.value as? Dictionary<String, AnyObject> else { return }
+            let personDict = json["person"] as! Dictionary<String, AnyObject>
+            if let realName = personDict["realname"] as? Dictionary<String, String> {
+                content = (realName["_content"])!
+            } else {
+                let userName = personDict["username"] as! Dictionary<String, String>
+                content = (userName["_content"])!
+            }
+            self.realName = content
+            print(self.realName)
+            completion(true)
         }
     }
     

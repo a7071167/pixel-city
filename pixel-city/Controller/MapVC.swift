@@ -42,7 +42,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         addDoubleTap()
         
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
-        collectionView?.register(PhotoCell.self, forCellWithReuseIdentifier: "photoCell")
+        collectionView?.register(PhotoCell.self, forCellWithReuseIdentifier: COLLECTIONVIEW_REUSE_ID)
         collectionView?.delegate = self
         collectionView?.dataSource = self
         collectionView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -51,8 +51,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         
         pullUpView.addSubview(collectionView!)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(addLabel(_:)), name: NSNotification.Name("PictureIsLoaded"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(addLabel(_:)), name: NSNotification.Name(LOADED_ONE_SMALL_PIC_IN_COLLECTION), object: nil)
         
     }
     
@@ -133,7 +132,7 @@ extension MapVC: MKMapViewDelegate {
         if annotation is MKUserLocation {
             return nil
         }
-        let pinAnnotation = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "droppablePin")
+        let pinAnnotation = MKPinAnnotationView(annotation: annotation, reuseIdentifier: DROPPABLE_PIN)
         pinAnnotation.pinTintColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         pinAnnotation.animatesDrop = true
         return pinAnnotation
@@ -163,7 +162,7 @@ extension MapVC: MKMapViewDelegate {
         let touchPoint = recognizer.location(in: mapView)
         let touchCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         
-        let annotation = DroppablePin(coordinate: touchCoordinate, identifier: "droppablePin ")
+        let annotation = DroppablePin(coordinate: touchCoordinate, identifier: DROPPABLE_PIN)
         mapView.addAnnotation(annotation)
         
         let coordinateRegion = MKCoordinateRegion(center: touchCoordinate, latitudinalMeters: regionRadius * 2.0, longitudinalMeters: regionRadius * 2.0)
@@ -254,7 +253,7 @@ extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: COLLECTIONVIEW_REUSE_ID, for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
         let imageFromIndex = ImageService.instance.imageArray[indexPath.row]
         let imageView = UIImageView(image: imageFromIndex)
         cell.addSubview(imageView)
@@ -262,13 +261,18 @@ extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopVC") as? PopVC else { return }
+        guard let popVC = storyboard?.instantiateViewController(withIdentifier: POP_VC) as? PopVC else { return }
         ImageService.instance.retrieveOneImage(forIndex: indexPath.row) { (success) in
             if success {
-                NotificationCenter.default.post(name: NSNotification.Name("Loaded"), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(LOADED_ONE_BIGSIZE_PIC), object: nil)
             }
         }
-        popVC.initData(forImage: ImageService.instance.imageArray[indexPath.row], and: ImageService.instance.ownerNames[indexPath.row])
+        ImageService.instance.getUserRealName(fromOwnerIndex: indexPath.row) { (success) in
+            if success {
+                NotificationCenter.default.post(name: NSNotification.Name(LOADED_USERNAME_REALNAME), object: nil)
+            }
+        }
+        popVC.initData(forImage: ImageService.instance.imageArray[indexPath.row])
         present(popVC, animated: true, completion: nil)
 
     }
@@ -277,8 +281,8 @@ extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
 extension MapVC: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = collectionView?.indexPathForItem(at: location), let cell = collectionView?.cellForItem(at: indexPath) else { return nil }
-        guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopVC") as? PopVC else { return nil }
-        popVC.initData(forImage: ImageService.instance.imageArray[indexPath.row], and: ImageService.instance.ownerNames[indexPath.row])
+        guard let popVC = storyboard?.instantiateViewController(withIdentifier: POP_VC) as? PopVC else { return nil }
+        popVC.initData(forImage: ImageService.instance.imageArray[indexPath.row])
 
         previewingContext.sourceRect = cell.contentView.frame
         return popVC
